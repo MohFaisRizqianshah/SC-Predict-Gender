@@ -14,7 +14,7 @@ X_cv = df['Name'].values
 y = df['Gender'].values
 
 # Vectorize the features
-vectorizer = CountVectorizer()
+vectorizer = CountVectorizer(analyzer="char")
 X = vectorizer.fit_transform(X_cv)
 
 # Split the data
