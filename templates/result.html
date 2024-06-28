@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Gender by Name - Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container{
+            color: white;
+            background-color: #5c5c5c;
+            margin-top: 50px;
+            width: 600px;
+            height: 600px;
+            max-height: 600px;
+            background-image: url("{{ url_for('static', filename='../static/bg.png') }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .container-result{
+            margin: 8rem 0 5rem 0;
+            text-align: center;
+        }
+        .result-text{
+            width: 100%;
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            font-weight: bolder;
+            -webkit-text-stroke-width: 1px;
+        }
+        .result-text.male{
+            -webkit-text-stroke-color: blue;
+        }
+        .result-text.female{
+            -webkit-text-stroke-color: violet;
+        }
+        .input-text {
+            width: 100%;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+        .symbol-text{
+            font-weight: bold;
+            -webkit-text-stroke-width: .2px;
+            -webkit-text-stroke-color: black;
+        }
+        .symbol-text.male{
+            color: blue;
+        }
+        .symbol-text.female{
+            color: violet;
+        }
+        .btn{
+            width: fit-content;
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Gender Prediction</h1>
+        <div class="container-result">
+            <div class="result-text {{ 'male' if prediction_text == 'Male' else 'female'}}">
+                <span class="symbol-text {{ 'male fa fa-mars' if prediction_text == 'Male' else 'female fa fa-venus'}}"></span>
+                {{ prediction_text }}
+            </div>
+            <div class="input-text">
+                <p>First Name / Given Name : {{ input_data[0] }}</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="/" class="btn btn-outline-primary btn-block">Back to Input Data</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Gender by Name - Input</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container{
+            color: white;
+            background-color: #5c5c5c;
+            margin-top: 50px;
+            width: 600px;
+            height: 600px;
+            max-height: 600px;
+            background-image: url("{{ url_for('static', filename='../static/bg.png') }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .form-group{
+            padding-top: 8rem;
+        }
+        .form-group label {
+            width: 100%;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+        .form-control{
+            border: 1px black solid;
+        }
+        .btn{
+            width: fit-content;
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Gender Prediction</h1>
+        <form id="prediction-form" action="/predict" method="post">
+            <div class="form-group">
+                <label for="first-name">First Name / Given Name:</label>
+                <input type="text" class="form-control" name="first-name" required>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success btn-block" style="margin-top: 2rem;">Predict</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
